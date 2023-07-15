@@ -1,0 +1,72 @@
+/*404*/
+.page-404 {
+    padding: 160px 0;
+    min-height: 100vh;
+}
+
+.page-404 .title-error {
+    font-size: 130px;
+    font-weight: 600;
+}
+
+.page-404 .search-form-wrapper {
+    text-align: center;
+}
+
+.page-404 .menu-404 {
+    list-style: none;
+}
+
+.page-404 .menu-404 li a {
+    background-color: var(--secondary_color) !important;
+    width: max-content;
+
+    padding: 4px 50px;
+    display: block;
+    margin: auto;
+    margin-bottom: 8px;
+    border-radius: 4px;
+}
+
+.page-404 .menu-404 li a {
+    color: #fff;
+}
+
+#main-menu-404 {
+    margin-top: 30px;
+}
+
+#main-menu-404 .row {
+    justify-content: center;
+}
+
+.page-404 .search-form-wrapper form {
+    position: relative;
+}
+
+.page-404 .search-form-wrapper form input[type="text"] {
+    border: 1px solid #ddd;
+    width: 280px;
+    height: 40px;
+    font-size: 14px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    padding-left: 14px;
+}
+
+.page-404 .search-form-wrapper form input[type="text"]:focus {
+    outline: 1px solid var(--secondary-color);
+}
+
+.page-404 .search-btn {
+    color: var(--secondary-color);
+    border-radius: 4px;
+    border: none;
+    width: 47px;
+    height: 39px;
+    position: absolute;
+    left: 57%;
+    background-color: transparent;
+}
+
+/*END*/
