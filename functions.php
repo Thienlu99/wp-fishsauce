@@ -1,4 +1,5 @@
 <?php
+
 /**
  * THCmedia-company functions and definitions
  *
@@ -76,7 +77,6 @@ function thcmedia_company_setup()
             'script',
         )
     );
-
 }
 
 add_action('after_setup_theme', 'thcmedia_company_setup');
@@ -116,4 +116,15 @@ if (function_exists('acf_add_options_page')) {
 // current price
 
 
+// Support woocommerce để làm template chính cho woocomaerce
+function my_custom_wc_theme_support()
+{
 
+    add_theme_support('woocommerce');
+
+    add_theme_support('wc-product-gallery-lightbox');
+
+    add_theme_support('wc-product-gallery-slider');
+}
+
+add_action('after_setup_theme', 'my_custom_wc_theme_support');
