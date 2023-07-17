@@ -5,7 +5,7 @@
  * @creator Tuyên
  * @time 15/03/2022 14:48
  */
-
+ //trình soạn thảo cũ
 add_filter('use_block_editor_for_post_type', '__return_false');
 
 /**

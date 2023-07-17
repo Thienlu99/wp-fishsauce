@@ -58,9 +58,17 @@ function thcmedia_company_setup()
             'menu-footer-2' => esc_html__('Menu footer 2', 'menu-footer-2'),
             'menu-footer-3' => esc_html__('Menu footer 3', 'menu-footer-3'),
             'menu-footer-4' => esc_html__('Menu footer 4', 'menu-footer-4'),
+            //menu-top
+            'header-top' => esc_html__('Menu Top', 'menu-top'),
         )
     );
-
+    // đăng kí sliderbar
+    if (function_exists('register_sidebar')) {
+        register_sidebar(array(
+            'name' => 'Cột bên',
+            'id' => 'sidebar',
+        ));
+    }
     /*
         * Switch default core markup for search form, comment form, and comments
         * to output valid HTML5.
