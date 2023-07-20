@@ -71,7 +71,7 @@ function thcmedia_company_scripts() {
 
     wp_enqueue_script('thcmediatheme-photoswipe', 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js', array(), null, true);
     wp_enqueue_script('thcmediatheme-photoswipe-ui', 'https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js', array(), null, true);
-
+    
 
 // components js
     foreach (glob(get_template_directory() . '/assets/js/*.js') as $filename) {

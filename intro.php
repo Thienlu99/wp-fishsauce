@@ -1,7 +1,7 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <img src="http://wp.nuocmamtungvan.com/wp-content/uploads/2023/07/11.png" alt="hinh-anh-nuoc-mam-tung-van">
+    <div class="row" style="align-items: center;">
+        <div class="col-md-6" style="padding-right: 70px;">
+            <img src="http://test.nuocmamtungvan.com/wp-content/uploads/2023/07/11.png" alt="hinh-anh-nuoc-mam-tung-van">
         </div>
         <div class="col-md-6">
         <h1>Nước mắm Tùng Vân</h1>
@@ -12,7 +12,7 @@
             được chắc lọc từ cá 100% từ
             <a href="<?php bloginfo("url")?>/gioi-thieu">cá cơm nguyên chất…</a>
           </p>
-          <a href="<?php bloginfo("url")?>/gioi-thieu" type="button" class="btn btn-outline-danger">Xem thêm</a>
+          <a href="<?php bloginfo("url")?>/gioi-thieu" type="button" class="btn btn-outline-danger btn-xemthem">Xem thêm</a>
         </div>
     </div>
 </div>

@@ -2,16 +2,18 @@
 <div class="module-news">
     <div class="container">
         <div class="bread-crumb">
-           
+
             <?php get_template_part('template-parts/components/component', 'breadcrumb'); ?>
         </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-9">
+
+
                 <!-- Get post mặt định -->
-                <?php if (have_posts()): ?>
-                    <?php while (have_posts()):
+                <?php if (have_posts()) : ?>
+                    <?php while (have_posts()) :
                         the_post(); ?>
                         <!-- // tạo biến để lấy url img -->
                         <?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
@@ -19,8 +21,7 @@
                             <div class="row">
                                 <div class="col-4 img">
                                     <a href="<?php the_permalink() ?>">
-                                        <img class="img-fluid lh2-img" src="<?php echo $featured_img_url ?>"
-                                            alt="<?php the_title() ?>">
+                                        <img class="img-fluid lh2-img" src="<?php echo $featured_img_url ?>" alt="<?php the_title() ?>">
                                     </a>
                                 </div>
                                 <div class="col-8 text">
@@ -67,9 +68,9 @@
                     <?php } ?>
 
                     <?php //get_template_part("/template-parts/pagination")
-                        ?>
+                    ?>
                     <?php //get_template_part("template-parts/pagination")
-                        ?>
+                    ?>
                     <!-- <ul class="pagination">
                         <li class="page-item"><a class="page-link" href="#"><i class="fas fa-step-backward"></i></a></li>
                         <li class="page-item"><a class="page-link" href="#">1</a></li>

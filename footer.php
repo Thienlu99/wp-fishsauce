@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -13,7 +14,6 @@ $menu_2 = '';
 $menu_3 = '';
 if (isset($locations['menu-footer-2'])) {
     $menu_2 = wp_get_nav_menu_object($locations['menu-footer-2']);
-
 }
 if (isset($locations['menu-footer-3'])) {
 
@@ -90,20 +90,20 @@ if (isset($locations['menu-footer-3'])) {
         <div class="row">
             <div class="col-12 col-md-3 col-lg-3">
                 <div class="logo">
-                <?php $logo = get_field('logo_footer', 'option');
-                if ($logo): ; ?>
-                    <div class="logo img-wrap">
-                        <img src="<?php echo $logo; ?>" alt="">
-                    </div>
-                <?php endif; ?>
+                    <?php $logo = get_field('logo_footer', 'option');
+                    if ($logo) :; ?>
+                        <div class="logo img-wrap">
+                            <img src="<?php echo $logo; ?>" alt="">
+                        </div>
+                    <?php endif; ?>
                     <?php $companyName = get_field('company_name', 'option');
-                    if ($companyName): ; ?>
+                    if ($companyName) :; ?>
                         <div class="title-footer">
                             <?php echo $companyName; ?>
                         </div>
                     <?php endif; ?>
                     <?php $footerDesc = get_field('footer_des', 'option');
-                    if ($footerDesc): ; ?>
+                    if ($footerDesc) :; ?>
                         <div class="footer_des">
                             <?php echo $footerDesc; ?>
                         </div>
@@ -111,7 +111,7 @@ if (isset($locations['menu-footer-3'])) {
 
 
                     <?php $formFooter = get_field('form_footer', 'option');
-                    if ($formFooter): ; ?>
+                    if ($formFooter) :; ?>
                         <div class="dang-ky-bao-gia">
                             <?php echo do_shortcode($formFooter); ?>
                         </div>
@@ -119,45 +119,52 @@ if (isset($locations['menu-footer-3'])) {
                 </div>
                 <div class="contact-wrap">
                     <?php $linkChuyenGia = get_field('link_chuyen_gia', 'option');
-                    if ($linkChuyenGia): ; ?>
+                    if ($linkChuyenGia) :; ?>
                         <div class="info">
                             <?php $iconChuyenGia = get_field('icon_chuyen_gia', 'option');
-                            if ($iconChuyenGia): ; ?>
-                                <?php echo $iconChuyenGia; ?><?php echo get_field('label_chuyen_gia', 'option'); ?><a
-                                href="<?php echo $linkChuyenGia['url']; ?>"><?php echo $linkChuyenGia['title']; ?></a>
+                            if ($iconChuyenGia) :; ?>
+                                <?php echo $iconChuyenGia; ?><?php echo get_field('label_chuyen_gia', 'option'); ?><a href="<?php echo $linkChuyenGia['url']; ?>"><?php echo $linkChuyenGia['title']; ?></a>
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
 
 
                     <?php $address = get_field('address', 'option');
-                    if ($address): ; ?>
+                    if ($address) :; ?>
                         <div class="info">
                             <?php $iconAddress = get_field('icon_address', 'option');
-                            if ($iconAddress): ; ?>
+                            if ($iconAddress) :; ?>
                                 <?php echo $iconAddress; ?>
                             <?php endif; ?>
                             <?php echo $address; ?>
                         </div>
                     <?php endif; ?>
                     <!-- <?php //$telephone = get_field('telephone', 'option');
-                    //if ($telephone): ; ?>
+                            //if ($telephone): ; 
+                            ?>
                         <div class="info">
                             <?php //$icon_phone = get_field('icon_phone', 'option');
-                            //if $icon_phone): ; ?>
-                                <?php //echo $icon_phone; ?>
-                            <?php //endif; ?>
-                            <?php //foreach ($telephone as $phone): ?>
-                                <span><?php //echo phone_format($phone['number']); ?></span>
-                            <?php //endforeach; ?>
+                            //if $icon_phone): ; 
+                            ?>
+                                <?php //echo $icon_phone; 
+                                ?>
+                            <?php //endif; 
+                            ?>
+                            <?php //foreach ($telephone as $phone): 
+                            ?>
+                                <span><?php //echo phone_format($phone['number']); 
+                                        ?></span>
+                            <?php //endforeach; 
+                            ?>
                         </div>
-                    <?php //endif; ?> -->
+                    <?php //endif; 
+                    ?> -->
                     <?php $mail = get_field('mail', 'option');
-                    if ($mail): ; ?>
+                    if ($mail) :; ?>
                         <div class="info">
 
                             <?php $iconMail = get_field('icon_mail', 'option');
-                            if ($iconMail): ; ?>
+                            if ($iconMail) :; ?>
                                 <?php echo $iconMail; ?>
                             <?php endif; ?>
                             <?php echo $mail; ?>
@@ -166,10 +173,10 @@ if (isset($locations['menu-footer-3'])) {
 
 
                     <?php $website = get_field('website', 'option');
-                    if ($website): ; ?>
+                    if ($website) :; ?>
                         <div class="info">
                             <?php $icon_website = get_field('icon_website', 'option');
-                            if ($icon_website): ; ?>
+                            if ($icon_website) :; ?>
                                 <?php echo $icon_website; ?>
                             <?php endif; ?>
 
@@ -181,7 +188,7 @@ if (isset($locations['menu-footer-3'])) {
                 </div>
             </div>
             <div class="col-12 col-md-3 col-lg-3">
-                <?php if ($menu_2): ?>
+                <?php if ($menu_2) : ?>
                     <div class="title-footer"><?php echo wp_kses_post($menu_2->name); ?></div>
                     <?php wp_nav_menu(
                         array(
@@ -193,7 +200,7 @@ if (isset($locations['menu-footer-3'])) {
                 <?php endif; ?>
             </div>
             <div class="col-12 col-md-3 col-lg-3">
-                <?php if ($menu_3): ?>
+                <?php if ($menu_3) : ?>
                     <div class="title-footer"><?php echo wp_kses_post($menu_3->name); ?></div>
                     <?php wp_nav_menu(
                         array(
@@ -203,41 +210,54 @@ if (isset($locations['menu-footer-3'])) {
                         )
                     ); ?>
                 <?php endif; ?>
+                
+                  
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fnuocmamtungvanhue&tabs=timeline&width=340&height=200px&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=780442403550456" width="340" height="200px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+
+                
+                  
+                   
+               
+           
+
             </div>
+
             <div class="col-12 col-md-3 col-lg-3">
+                <!-- google mao -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15260.494573711629!2d107.1054963!3d17.0176042!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3140ddbe1999f96f%3A0xc965bbf81ce4725c!2zTsaw4bubYyBN4bqvbSBUw7luZyBWw6Ju!5e0!3m2!1svi!2s!4v1689641830333!5m2!1svi!2s" width="300px" height="200px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <?php $col4Footer = get_field('col4_footer', 'option');
-                if ($col4Footer): ; ?>
+                if ($col4Footer) :; ?>
                     <div class="title-footer"><?php echo $col4Footer['title']; ?></div>
                     <div class="extra_info"><?php echo $col4Footer['extra_info']; ?></div>
                 <?php endif; ?>
 
 
                 <?php $map = get_field('map', 'option');
-                if ($map): ; ?>
+                if ($map) :; ?>
                     <div class="map">
                         <?php echo $map; ?>
                     </div>
                 <?php endif; ?>
 
-                <?php $social = get_field('social', 'option');
-                if ($social): ; ?>
+                <!-- <?php $social = get_field('social', 'option');
+                if ($social) :; ?>
                     <div class="social-wrap">
-                        <?php foreach ($social as $item): ?>
+                        <?php foreach ($social as $item) : ?>
                             <a href="<?php echo $item['link']['url']; ?>" class="social" style="background-color: <?php
-                            echo
-                            $item['color']; ?>">
+                                                                                                                    echo
+                                                                                                                    $item['color']; ?>">
                                 <?php echo $item['icon']; ?>
                             </a>
                         <?php endforeach; ?>
                     </div>
-                <?php endif; ?>
+                <?php endif; ?> -->
             </div>
         </div>
     </div>
 </footer>
 
 
-<?php if (get_field('scroll_to_top', 'option')): ?>
+<?php if (get_field('scroll_to_top', 'option')) : ?>
     <div class="scrollToTop">
         <i class="fa-solid fa-arrow-up"></i>
     </div>

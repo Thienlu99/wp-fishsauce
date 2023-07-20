@@ -39,7 +39,7 @@
             <?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
             <!-- viet code -->
             <div class="carousel-item">
-                <img class="d-block w-100" src="<?php echo $featured_img_url ?>" alt="<?php the_title() ?>">
+                <img class="d-block w-100" style="height: 432px;" src="<?php echo $featured_img_url ?>" alt="<?php the_title() ?>">
             </div>
         <?php endwhile;
         wp_reset_postdata(); ?>

@@ -28,7 +28,7 @@
 </div>
 <!--  -->
 
-<div class="block-intro test-ne mt-5">
+<!-- <div class="block-intro test-ne mt-5">
     <div class="container">
         <div class="row">
             <?php $getposts = new WP_query();
@@ -36,14 +36,14 @@
             <?php global $wp_query;
             $wp_query->in_the_loop = true; ?>
             <?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
-                <!-- // tạo biến để lấy url img -->
+               
             
-                <!-- <div class="col-md-4 col-sm-6 col-12 item-intro">
-                    <?php get_template_part("/template-parts/card/card-project") ?>
-                </div> -->
+                <div class="col-md-4 col-sm-6 col-12 item-intro">
+                    <?php get_template_part("/template-parts/card/card-product") ?>
+                </div>
             <?php endwhile;
             wp_reset_postdata(); ?>
         </div>
 
     </div>
-</div>
+</div> -->

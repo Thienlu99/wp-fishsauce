@@ -294,3 +294,35 @@ window.onresize = function (event) {
     flexFont();
 };
 
+// xử lý slider
+// Instantiate the Bootstrap carousel
+$(document).ready(function () {
+    $(".image-slider").slick({
+      slidesToShow: 3, //hiện thị 3 cái
+      slidesToScroll: 1, // click chuột vào đổi chạy 1 cái
+      infinite: true, // chạy vô tận
+      arrows: true,
+      draggable: false,
+      prevArrow: `<button type='button' class='slick-prev slick-arrow'><ion-icon name="arrow-back-outline"></ion-icon></button>`,
+      nextArrow: `<button type='button' class='slick-next slick-arrow'><ion-icon name="arrow-forward-outline"></ion-icon></button>`,
+      dots: true,
+      responsive: [
+        {
+          breakpoint: 1025,
+          settings: {
+            slidesToShow: 3,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            arrows: false,
+            infinite: false,
+          },
+        },
+      ],
+      // autoplay: true,
+      // autoplaySpeed: 1000,
+    });
+  });

@@ -27,9 +27,9 @@ if (have_rows('content')) {
 
 <div class="container-fluid">
     <!-- phần one -->
-    <section class="section-one mt-5">
+    <section class="section-one">
         <div class="container">
-            <div class="row">
+            <div class="row section-one-intro">
                 <div class="col-md-12">
                     <?php get_template_part('intro'); ?>
                 </div>
@@ -55,6 +55,11 @@ if (have_rows('content')) {
     <!-- phầm sản phẩm -->
     <section class="section-product">
         <?php get_template_part("sanpham") ?>
+    </section>
+
+    <!-- slider foodpost -->
+    <section class="section-foodpost" style="margin-top: 150px;">
+    <?php get_template_part("foodpost-slider") ?>
     </section>
 </div>
 

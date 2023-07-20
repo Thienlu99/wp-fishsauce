@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 get_header( 'shop' ); ?>
+<?php get_template_part('template-parts/components/component', 'breadcrumb'); ?>
 
 	<?php
 		/**

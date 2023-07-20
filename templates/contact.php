@@ -12,7 +12,7 @@ get_header();
 ?>
 
 <main class="bg-color-pri">
-<?php get_template_part('template-parts/components/component', 'breadcrumb'); ?>
+    <?php get_template_part('template-parts/components/component', 'breadcrumb'); ?>
     <section class="contact">
 
         <!-- duoi -->
@@ -23,7 +23,7 @@ get_header();
                         <?php the_title(); ?>
                     </h1>
                     <!-- form -->
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="form-group col-sm-6">
                             <label for="name" class="h4">Name</label>
                             <input type="text" class="form-control" id="name" placeholder="Enter name" required>
@@ -37,8 +37,13 @@ get_header();
                         <label for="message" class="h4 ">Message</label>
                         <textarea id="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
                     </div>
-                    <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Submit</button>
+                    <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Submit</button> -->
                     <div id="msgSubmit" class="h3 text-center hidden">Thông tin liên hệ</div>
+                    <?php
+                   
+                        echo do_shortcode('[contact-form-7 id="280" title="Liên Hệ"]');
+                 
+                    ?>
                     <div class="">
                         <div class="contact-wrap">
                             <?php $address = get_field('address', 'option');

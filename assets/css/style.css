@@ -811,7 +811,7 @@ header .header-inner {
   justify-content: space-between;
 }
 header .header-inner .menu-header-wrap {
-  width: 740px;
+  width: 900px;
 }
 header .header-inner .social-list {
   display: flex;
@@ -822,4 +822,70 @@ header .header-inner .social-list .social-wrap {
 }
 header .header-inner .social-list .social-wrap a {
   font-size: 20px;
+}
+/*  căn giữa */
+
+ul.products.columns-4 {
+  text-align: center;
+}
+.info-product {
+  text-align: center;
+}
+
+/* phần silider sticker */
+.slick-initialized .slick-slide {
+  margin: 0 10px;
+}
+.slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  line-height: 1;
+  z-index: 5;
+  transition: all 0.2s linear;
+}
+.slick-arrow:hover {
+  background-color: #2cccff;
+  color: white;
+}
+.slick-prev {
+  left: 0;
+}
+.slick-next {
+  right: 0;
+}
+.slick-dots {
+  position: absolute;
+  /* bottom: 0; */
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 0 20px;
+}
+.slick-dots button {
+  font-size: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 100rem;
+  background-color: #eee;
+  border: none;
+  outline: none;
+  transition: all 0.2s linear;
+}
+.slick-dots .slick-active button {
+  background-color: #2cccff;
+}
+
+a.btn-xemthem {
+  border-radius: 5px;
+  padding: 6px 30px 6px 30px;
 }
