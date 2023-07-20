@@ -43,7 +43,6 @@ get_header();
         <!-- duoi -->
         <div class="container content-wrapper">
             <div class="row">
-
                 <?php $contact_border = get_field('contact_border'); ?>
                 <?php foreach ($contact_border as $contact) :
                 ?>
@@ -60,24 +59,13 @@ get_header();
                     </div>
                 <?php endforeach; ?>
             </div>
+        </div>
+
+        <!-- phần form -->
+        <div class="container contact-form">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-6">
-                    <!-- form -->
-                    <!-- <div class="row">
-                        <div class="form-group col-sm-6">
-                            <label for="name" class="h4">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" required>
-                        </div>
-                        <div class="form-group col-sm-6">
-                            <label for="email" class="h4">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="h4 ">Message</label>
-                        <textarea id="message" class="form-control" rows="5" placeholder="Enter your message" required></textarea>
-                    </div>
-                    <button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Submit</button> -->
+
                     <div id="msgSubmit" class="h3 text-center hidden mt-5">Thông tin liên hệ</div>
                     <?php
                     echo do_shortcode('[contact-form-7 id="280" title="Liên Hệ"]');
@@ -180,7 +168,6 @@ get_header();
 
                 </div>
             </div>
-
         </div>
     </section>
 </main>

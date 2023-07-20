@@ -889,4 +889,44 @@
     border-radius: 5px;
     padding: 6px 30px 6px 30px;
   }
-  
+  /* contact */
+  section.bg-contact {
+    position: relative;
+}
+
+.text-bg-contact {
+    color: #ffff;
+    top: 50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    position: absolute;
+}
+
+.bg-img-contact {
+    opacity: 0.8;
+}
+
+section.contact {
+    background-color: #F4F4F4;
+}
+
+.right-contact {
+    height: 200px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #ffff;
+}
+
+.right-contact i {
+    font-size: 30px;
+}
+
+span.span-contact {
+    padding: 10px;
+    background-color: #A8583C;
+    color: #ffff;
+}
+
+a.a-color-contact {
+    color: blue;
+}
