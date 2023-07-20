@@ -12,9 +12,9 @@ get_header();
 ?>
 <?php get_template_part('template-parts/components/component', 'breadcrumb'); ?>
 <div class="container">
-<h1 class="title-heading">
-    <?php the_title(); ?>
-</h1>
+    <h1 class="title-heading">
+        <?php the_title(); ?>
+    </h1>
 </div>
 <section class="bg-contact">
     <div class="bg-img-contact">
@@ -44,18 +44,18 @@ get_header();
         <div class="container content-wrapper">
             <div class="row">
 
-                <?php $contact_border = get_field('contact_border');; ?>
+                <?php $contact_border = get_field('contact_border'); ?>
                 <?php foreach ($contact_border as $contact) :
                 ?>
                     <div class="col-md-6">
-                    <div class="right-contact">
-                       <?php echo $contact['icon_border_contact']?>
-                                    
-                        <h4><?php echo $contact['title_border_contact']?></h4>
-                        <p><?php echo $contact['des_border_contact'] ;?></p>
-                        <a target="_blank" class="a-color-contact" href="https://www.facebook.com/thienlu.999"><?php echo $contact['link_border_contact'];?></a>
-                        <br>
-                        <span class="span-contact"><?php echo $contact['contact_contact'];?></span>
+                        <div class="right-contact">
+                            <?php echo $contact['icon_border_contact'] ?>
+
+                            <h4><?php echo $contact['title_border_contact'] ?></h4>
+                            <p><?php echo $contact['des_border_contact']; ?></p>
+                            <a target="_blank" class="a-color-contact" href="https://www.facebook.com/thienlu.999"><?php echo $contact['link_border_contact']; ?></a>
+                            <br>
+                            <span class="span-contact"><?php echo $contact['contact_contact']; ?></span>
                         </div>
                     </div>
                 <?php endforeach; ?>

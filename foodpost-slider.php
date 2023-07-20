@@ -1,5 +1,9 @@
 <div class="container">
-    <h2 class="text-center"> Các món ăn với nước mắm Tùng Vân</h2>
+    <h2 class="text-center">
+        <div class="title-thc">
+            Các món ăn với nước mắm Tùng Vân
+        </div>
+    </h2>
 </div>
 <div class="image-slider">
     <!-- Get post News Query -->

@@ -1,10 +1,14 @@
 <div class="block-product">
     <div class="container">
-        <h2 class="lh2-title text-center mt-5"> Sản Phẩm nổi bật</h2>
+        <h2 class="lh2-title text-center mt-5">
+            <div class="title-thc">
+                Sản Phẩm nổi bật
+            </div>
+        </h2>
         <div class="danh-muc">
             <span>
                 <ul style="list-style: none;">
-                <!-- danh sách danh mục -->
+                    <!-- danh sách danh mục -->
                     <?php
                     $args = array(
                         'type'      => 'product',
@@ -34,15 +38,16 @@
             );
             ?>
             <?php $args = array(
-                'post_type' => 'product', 
-                'posts_per_page' => 10, 
-                'ignore_sticky_posts' => 1, 
-                'tax_query' => $tax_query); ?>
+                'post_type' => 'product',
+                'posts_per_page' => 10,
+                'ignore_sticky_posts' => 1,
+                'tax_query' => $tax_query
+            ); ?>
             <?php $getposts = new WP_query($args); ?>
             <?php global $wp_query;
             $wp_query->in_the_loop = true; ?>
             <?php while ($getposts->have_posts()) : $getposts->the_post(); ?>
-               
+
                 <div class="item-product col-lg-3 col-md-6 col-sm-6 col-12">
                     <?php get_template_part("/template-parts/card/card-project") ?>
                 </div>
@@ -56,7 +61,11 @@
 <!-- các sản phẩm -->
 <div class="block-product">
     <div class="container">
-        <h2 class="lh2-title text-center mt-5"> CÁC SẢN PHẨM</h2>
+        <h2 class="lh2-title text-center mt-5">
+            <div class="title-thc">
+                CÁC SẢN PHẨM
+            </div>
+        </h2>
         <div class="row">
 
             <!-- Get post News Query -->
@@ -69,7 +78,7 @@
                 <?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
                 <!-- code -->
                 <div class="item-product col-lg-3 col-md-6 col-sm-6 col-12">
-                <?php get_template_part("/template-parts/card/card-project") ?>
+                    <?php get_template_part("/template-parts/card/card-project") ?>
                 </div>
             <?php endwhile;
             wp_reset_postdata(); ?>
@@ -81,4 +90,3 @@
         </div>
     </div>
 </div>
-

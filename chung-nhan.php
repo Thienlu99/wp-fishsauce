@@ -1,6 +1,10 @@
 <div class="block-intro">
     <div class="container">
-        <h2 class="lh2-title1 text-center">Chứng nhận</h2>
+        <h2 class="lh2-title1 text-center">
+            <div class="title-thc">
+                Chứng nhận
+            </div>
+        </h2>
         <div class="row">
             <!-- Get post News Query -->
             <?php $getposts = new WP_query();
