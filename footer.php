@@ -88,60 +88,114 @@ if (isset($locations['menu-footer-3'])) {
 <footer id="footer">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-3 col-lg-3">
-                <div class="logo">
-                    <?php $logo = get_field('logo_footer', 'option');
-                    if ($logo) :; ?>
-                        <div class="logo img-wrap">
-                            <img src="<?php echo $logo; ?>" alt="">
-                        </div>
-                    <?php endif; ?>
-                    <?php $companyName = get_field('company_name', 'option');
-                    if ($companyName) :; ?>
-                        <div class="title-footer">
-                            <?php echo $companyName; ?>
-                        </div>
-                    <?php endif; ?>
-                    <?php $footerDesc = get_field('footer_des', 'option');
-                    if ($footerDesc) :; ?>
-                        <div class="footer_des">
-                            <?php echo $footerDesc; ?>
-                        </div>
-                    <?php endif; ?>
+            <div class="col-12 col-md-6 col-lg-6">
+                <?php $logo = get_field('logo', 'options');
+                if ($logo) :; ?>
+
+                    <div class="logo" style=" max-width: 150px;margin: 0 30px;">
+                        <a href="<?php echo get_home_url(); ?>">
+                            <div class="img-wrap">
+                                <picture>
+                                    <source media="(max-width:768px)" srcset="<?php echo wp_get_attachment_image_src($logo, 'medium')[0]; ?>">
+                                    <source media="(max-width:1024px)" srcset="<?php echo wp_get_attachment_image_src($logo, 'large')[0];
+                                                                                ?>">
+                                    <source media="(max-width:1200px)" srcset="<?php echo wp_get_attachment_image_src($logo, 'full')[0];
+                                                                                ?>">
+                                    <img src="<?php echo wp_get_attachment_image_src($logo, 'full')[0];
+                                                ?>">
+                                </picture>
+                            </div>
+                        </a>
+                    </div>
+
+                <?php endif; ?>
 
 
-                    <?php $formFooter = get_field('form_footer', 'option');
-                    if ($formFooter) :; ?>
-                        <div class="dang-ky-bao-gia">
-                            <?php echo do_shortcode($formFooter); ?>
-                        </div>
-                    <?php endif; ?>
+                <?php $companyName = get_field('company_name', 'option');
+                if ($companyName) :; ?>
+                    <div class="title-footer">
+                        <?php echo $companyName; ?>
+                    </div>
+                <?php endif; ?>
+                <?php $footerDesc = get_field('footer_des', 'option');
+                if ($footerDesc) :; ?>
+                    <div class="footer_des">
+                        <?php echo $footerDesc; ?>
+                    </div>
+                <?php endif; ?>
+
+
+                <?php $formFooter = get_field('form_footer', 'option');
+                if ($formFooter) :; ?>
+                    <div class="dang-ky-bao-gia">
+                        <?php echo do_shortcode($formFooter); ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+            <div class="col-12 col-md-6 col-lg-6">
+                <?php if ($menu_2) : ?>
+                    <div class="title-footer"><?php echo wp_kses_post($menu_2->name); ?></div>
+                    <?php wp_nav_menu(
+                        array(
+                            'menu' => wp_kses_post($menu_2->name),
+                            'menu_id' => 'menu-footer-2',
+                            'menu_class' => 'menu-class',
+                        )
+                    ); ?>
+                <?php endif; ?>
+
+                <!-- map và fanpage -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <?php $googlemap = get_field('google_map', 'option');
+                        if ($googlemap) :; ?>
+                            <div class="googlemap">
+                                    <?php echo $googlemap?>                        
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                    <!-- fanpage -->
+                    <div class="col-md-6">
+                        <?php $fanpage = get_field('fanpage', 'option');
+                        if ($googlemap) :; ?>
+                            <div class="fanpage">
+                                    <?php echo $fanpage?>                        
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </div>
-                <div class="contact-wrap">
-                    <?php $linkChuyenGia = get_field('link_chuyen_gia', 'option');
-                    if ($linkChuyenGia) :; ?>
-                        <div class="info">
-                            <?php $iconChuyenGia = get_field('icon_chuyen_gia', 'option');
-                            if ($iconChuyenGia) :; ?>
-                                <?php echo $iconChuyenGia; ?><?php echo get_field('label_chuyen_gia', 'option'); ?><a href="<?php echo $linkChuyenGia['url']; ?>"><?php echo $linkChuyenGia['title']; ?></a>
-                            <?php endif; ?>
-                        </div>
-                    <?php endif; ?>
+            </div>
 
 
-                    <?php $address = get_field('address', 'option');
-                    if ($address) :; ?>
-                        <div class="info">
-                            <?php $iconAddress = get_field('icon_address', 'option');
-                            if ($iconAddress) :; ?>
-                                <?php echo $iconAddress; ?>
-                            <?php endif; ?>
-                            <?php echo $address; ?>
-                        </div>
-                    <?php endif; ?>
-                    <!-- <?php //$telephone = get_field('telephone', 'option');
-                            //if ($telephone): ; 
-                            ?>
+
+
+
+            <div class="contact-wrap">
+                <?php $linkChuyenGia = get_field('link_chuyen_gia', 'option');
+                if ($linkChuyenGia) :; ?>
+                    <div class="info">
+                        <?php $iconChuyenGia = get_field('icon_chuyen_gia', 'option');
+                        if ($iconChuyenGia) :; ?>
+                            <?php echo $iconChuyenGia; ?><?php echo get_field('label_chuyen_gia', 'option'); ?><a href="<?php echo $linkChuyenGia['url']; ?>"><?php echo $linkChuyenGia['title']; ?></a>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+
+
+                <?php $address = get_field('address', 'option');
+                if ($address) :; ?>
+                    <div class="info">
+                        <?php $iconAddress = get_field('icon_address', 'option');
+                        if ($iconAddress) :; ?>
+                            <?php echo $iconAddress; ?>
+                        <?php endif; ?>
+                        <?php echo $address; ?>
+                    </div>
+                <?php endif; ?>
+                <!-- <?php //$telephone = get_field('telephone', 'option');
+                        //if ($telephone): ; 
+                        ?>
                         <div class="info">
                             <?php //$icon_phone = get_field('icon_phone', 'option');
                             //if $icon_phone): ; 
@@ -159,88 +213,78 @@ if (isset($locations['menu-footer-3'])) {
                         </div>
                     <?php //endif; 
                     ?> -->
-                    <?php $mail = get_field('mail', 'option');
-                    if ($mail) :; ?>
-                        <div class="info">
+                <?php $mail = get_field('mail', 'option');
+                if ($mail) :; ?>
+                    <div class="info">
 
-                            <?php $iconMail = get_field('icon_mail', 'option');
-                            if ($iconMail) :; ?>
-                                <?php echo $iconMail; ?>
-                            <?php endif; ?>
-                            <?php echo $mail; ?>
-                        </div>
-                    <?php endif; ?>
-
-
-                    <?php $website = get_field('website', 'option');
-                    if ($website) :; ?>
-                        <div class="info">
-                            <?php $icon_website = get_field('icon_website', 'option');
-                            if ($icon_website) :; ?>
-                                <?php echo $icon_website; ?>
-                            <?php endif; ?>
-
-                            <?php echo $website; ?>
-                        </div>
-                    <?php endif; ?>
-
-
-                </div>
-            </div>
-            <div class="col-12 col-md-3 col-lg-3">
-                <?php if ($menu_2) : ?>
-                    <div class="title-footer"><?php echo wp_kses_post($menu_2->name); ?></div>
-                    <?php wp_nav_menu(
-                        array(
-                            'menu' => wp_kses_post($menu_2->name),
-                            'menu_id' => 'menu-footer-2',
-                            'menu_class' => 'menu-class',
-                        )
-                    ); ?>
-                <?php endif; ?>
-            </div>
-            <div class="col-12 col-md-3 col-lg-3">
-                <?php if ($menu_3) : ?>
-                    <div class="title-footer"><?php echo wp_kses_post($menu_3->name); ?></div>
-                    <?php wp_nav_menu(
-                        array(
-                            'menu' => wp_kses_post($menu_3->name),
-                            'menu_id' => 'menu-footer-3',
-                            'menu_class' => 'menu-class',
-                        )
-                    ); ?>
-                <?php endif; ?>
-                
-                  
-                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fnuocmamtungvanhue&tabs=timeline&width=340&height=200px&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=780442403550456" width="340" height="200px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
-
-                
-                  
-                   
-               
-           
-
-            </div>
-
-            <div class="col-12 col-md-3 col-lg-3">
-                <!-- google mao -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15260.494573711629!2d107.1054963!3d17.0176042!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3140ddbe1999f96f%3A0xc965bbf81ce4725c!2zTsaw4bubYyBN4bqvbSBUw7luZyBWw6Ju!5e0!3m2!1svi!2s!4v1689641830333!5m2!1svi!2s" width="300px" height="200px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                <?php $col4Footer = get_field('col4_footer', 'option');
-                if ($col4Footer) :; ?>
-                    <div class="title-footer"><?php echo $col4Footer['title']; ?></div>
-                    <div class="extra_info"><?php echo $col4Footer['extra_info']; ?></div>
-                <?php endif; ?>
-
-
-                <?php $map = get_field('map', 'option');
-                if ($map) :; ?>
-                    <div class="map">
-                        <?php echo $map; ?>
+                        <?php $iconMail = get_field('icon_mail', 'option');
+                        if ($iconMail) :; ?>
+                            <?php echo $iconMail; ?>
+                        <?php endif; ?>
+                        <?php echo $mail; ?>
                     </div>
                 <?php endif; ?>
 
-                <!-- <?php $social = get_field('social', 'option');
-                if ($social) :; ?>
+
+                <?php $website = get_field('website', 'option');
+                if ($website) :; ?>
+                    <div class="info">
+                        <?php $icon_website = get_field('icon_website', 'option');
+                        if ($icon_website) :; ?>
+                            <?php echo $icon_website; ?>
+                        <?php endif; ?>
+
+                        <?php echo $website; ?>
+                    </div>
+                <?php endif; ?>
+
+
+            </div>
+        </div>
+        <!-- end -->
+
+
+        <div class="col-12 col-md-3 col-lg-3">
+            <?php if ($menu_3) : ?>
+                <div class="title-footer"><?php echo wp_kses_post($menu_3->name); ?></div>
+                <?php wp_nav_menu(
+                    array(
+                        'menu' => wp_kses_post($menu_3->name),
+                        'menu_id' => 'menu-footer-3',
+                        'menu_class' => 'menu-class',
+                    )
+                ); ?>
+            <?php endif; ?>
+
+
+         
+
+
+
+
+
+
+
+        </div>
+
+        <div class="col-12 col-md-3 col-lg-3">
+            
+            <?php $col4Footer = get_field('col4_footer', 'option');
+            if ($col4Footer) :; ?>
+                <div class="title-footer"><?php echo $col4Footer['title']; ?></div>
+                <div class="extra_info"><?php echo $col4Footer['extra_info']; ?></div>
+            <?php endif; ?>
+
+
+            <?php $map = get_field('map', 'option');
+            if ($map) :; ?>
+                <div class="map">
+                    <?php echo $map; ?>
+                </div>
+            <?php endif; ?>
+
+            <!-- <?php $social = get_field('social', 'option');
+                    if ($social) :; ?>
                     <div class="social-wrap">
                         <?php foreach ($social as $item) : ?>
                             <a href="<?php echo $item['link']['url']; ?>" class="social" style="background-color: <?php
@@ -251,9 +295,9 @@ if (isset($locations['menu-footer-3'])) {
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?> -->
-            </div>
         </div>
     </div>
+
 </footer>
 
 

@@ -24,25 +24,12 @@
 </head>
 
 <body <?php body_class('website-design-by-thcmedia'); ?>>
-<!-- <div class="top">
-                    <div class="row">
-                        <div class="top-menu">
-                            <?php wp_nav_menu(
-                                array(
-                                    'theme_location' => 'menu-top', //tên trùng với function tạo menu top
-                                    'container' => 'false',
-                                    'menu_id' => 'menu-top',
-                                    'menu_class' => 'menu-top'
-                                )
-                            ); ?>
-                        </div>
-                    </div>
-                </div> -->
+
     <!--Header-->
     <header id="header">
         <div class="header-wrap">
             <div class="container">
-            
+
                 <div class="row header-inner">
 
                     <div class="mobile-menu-button responsive-menu-toggle thc_center_col">
@@ -50,50 +37,58 @@
                     </div>
                     <?php $logo = get_field('logo', 'options');
                     if ($logo) :; ?>
-                        <div class="logo" style=" max-width: 70px;margin: 0 30px;">
-                            <a href="<?php echo get_home_url(); ?>">
-                                <div class="img-wrap">
-                                    <picture>
-                                        <source media="(max-width:768px)" srcset="<?php echo wp_get_attachment_image_src($logo, 'medium')[0]; ?>">
-                                        <source media="(max-width:1024px)" srcset="<?php echo wp_get_attachment_image_src($logo, 'large')[0];
-                                                                                    ?>">
-                                        <source media="(max-width:1200px)" srcset="<?php echo wp_get_attachment_image_src($logo, 'full')[0];
-                                                                                    ?>">
-                                        <img style="max-width: 100%;height: auto;" src="<?php echo wp_get_attachment_image_src($logo, 'full')[0];
+                        <div class="col-md-3">
+                            <div class="logo" style=" max-width: 70px;margin: 0 30px;">
+                                <a href="<?php echo get_home_url(); ?>">
+                                    <div class="img-wrap">
+                                        <picture>
+                                            <source media="(max-width:768px)" srcset="<?php echo wp_get_attachment_image_src($logo, 'medium')[0]; ?>">
+                                            <source media="(max-width:1024px)" srcset="<?php echo wp_get_attachment_image_src($logo, 'large')[0];
                                                                                         ?>">
-                                    </picture>
-                                </div>
-                            </a>
+                                            <source media="(max-width:1200px)" srcset="<?php echo wp_get_attachment_image_src($logo, 'full')[0];
+                                                                                        ?>">
+                                            <img style="max-width: 100%;height: auto;" src="<?php echo wp_get_attachment_image_src($logo, 'full')[0];
+                                                                                            ?>">
+                                        </picture>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     <?php endif; ?>
 
                     <!-- menu -->
-
-                    <div class="menu-header-wrap">
-                        <?php wp_nav_menu(
-                            array(
-                                'theme_location' => 'primary',
-                                // function
-                                'menu' => 'primary',
-                                'menu_id' => 'menu-header',
-                                'menu_class' => 'menu-header',
-                                //ul
-                                'container_class' => 'menu-menu-chinh-container',
-                                //div
-                            )
-                        );
-                        ?>
+                    <div class="col-md-9">
+                        <div class="menu-header-wrap">
+                            <?php wp_nav_menu(
+                                array(
+                                    'theme_location' => 'primary',
+                                    // function
+                                    'menu' => 'primary',
+                                    'menu_id' => 'menu-header',
+                                    'menu_class' => 'menu-header',
+                                    //ul
+                                    'container_class' => 'menu-menu-chinh-container',
+                                    //div
+                                )
+                            );
+                            ?>
+                        </div>
                     </div>
-                    <?php $social = get_field('social', 'option');
-                    if ($social) :; ?>
+                    <!-- <?php //$social = get_field('social', 'option');
+                            //if ($social) :; 
+                            ?>
                         <div class="social-list">
-                            <?php foreach ($social as $item) : ?>
-                                <div class="social-wrap"><a href="<?php echo $item['link']['url']; ?>"><?php echo $item['icon'];
-                                                                                                        ?></a></div>
-                            <?php endforeach; ?>
+                            <?php //foreach ($social as $item) : 
+                            ?>
+                                <div class="social-wrap"><a href="<?php //echo $item['link']['url']; 
+                                                                    ?>"><?php //echo $item['icon'];
+                                                                                                            ?></a></div>
+                            <?php //endforeach; 
+                            ?>
 
                         </div>
-                    <?php endif; ?>
+                    <?php //endif; 
+                    ?> -->
 
                     <!-- form tìm kiếm -->
 
