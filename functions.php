@@ -126,7 +126,7 @@ if (function_exists('acf_add_options_page')) {
 // current price
 
 
-// Support woocommerce để làm template chính cho woocomaerce
+// Support woocommerce để làm template chính cho woocomaerce---------------------------
 function my_custom_wc_theme_support()
 {
 
@@ -140,14 +140,15 @@ function my_custom_wc_theme_support()
 add_action('after_setup_theme', 'my_custom_wc_theme_support');
 
 
-// xóa breabum woocommerce
+// xóa breabum woocommerce------------------
 function remove_breadcrumb()
 {
     remove_action("woocommerce_before_main_content", "woocommerce_breadcrumb", 20);
 }
 add_action('init', 'remove_breadcrumb');
-//  mua ngay
 
+// --------------------------------------
+//  mua ngay
 /* them code mua ngay vao phần san pham*/
 function show_buynow_product_box()
 {
@@ -167,7 +168,6 @@ add_action('woocommerce_after_shop_loop_item', 'show_buynow_product_box');
 
 
 /* them code mua ngay vao trang chi tiet san pham*/
-
 add_action('woocommerce_after_add_to_cart_button', 'kids_quickbuy_after_addtocart_button');
 function kids_quickbuy_after_addtocart_button()
 {
@@ -211,3 +211,130 @@ function kids_quickbuy_after_addtocart_button()
     </script>
 <?php
 }
+?>
+
+<?php
+// nut contact lien he,fanpage--------
+add_action( 'wp_footer','contact_footer' );
+function contact_footer(){ ?>
+    <div class="div-nut">
+    <a href="tel:0914282009" class="nut-goi nut-action">
+        <div><span class="tooltext">Gọi ngay</span></div>
+    </a>
+    <a href="http://zalo.me/0914282009" target="_blank" class="nut-zalo nut-action">
+        <div><span class="tooltext">Chat với chúng tôi qua Zalo</span></div>
+    </a>
+    <a href="https://www.facebook.com/nuocmamtungvanhue" target="_blank" class="nut-face nut-action">
+        <div><span class="tooltext">Facebook Messenger</span></div>
+    </a>
+</div>
+<style>
+    .div-nut {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px !important;
+    position: fixed;
+    z-index: 2147483647;
+    bottom: 24px;
+    right: 0;
+    padding-left: 5px;
+}
+.div-nut:hover .nut-action {
+    text-decoration: none !important;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15), 0 4px 15px rgba(0, 0, 0, 0.13);
+}
+
+.div-nut .nut-goi {
+    background-image: url(https://test.nuocmamtungvan.com/wp-content/uploads/2023/07/phone-call.png);
+}
+
+.div-nut .nut-zalo {
+    background-image: url(https://test.nuocmamtungvan.com/wp-content/uploads/2023/07/zalo-icon.png);
+}
+.div-nut .nut-face {
+    background-image: url(https://test.nuocmamtungvan.com/wp-content/uploads/2023/07/messenger.png);
+}
+.div-nut > a {
+    display: inline-block;
+    overflow: visible !important;
+    width: 54px !important;
+    height: 54px !important;
+    margin: 6px !important;
+    background-size: 100% !important;
+    border: 2px solid #fff !important;
+    border-radius: 50% !important;
+    margin: 8px;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto;
+    cursor: pointer;
+    position: relative;
+}
+a{
+    color: #334862;
+    text-decoration: none;
+}
+
+.div-nut .tooltext {
+    /* visibility: hidden; */
+    font-size: 12px !important;
+    line-height: 16px !important;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 4px;
+    padding: 8px;
+    position: absolute;
+    top: calc(50% - 16px);
+    z-index: 1;
+    /* opacity: 0; */
+    transition: opacity 0.5s;
+    right: 120%;
+    background-image: linear-gradient(180deg, #e57373 0%, #c62828 100%);
+    color: #fff;
+}
+/* nut rieng */
+.nut-goi.nut-action:before {
+    content: "";
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%,-50%) scale(0);
+    -moz-transform: translate(-50%,-50%) scale(0);
+    -ms-transform: translate(-50%,-50%) scale(0);
+    -o-transform: translate(-50%,-50%) scale(0);
+    border: 5px solid #feaf88;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    display: block;
+    -webkit-animation: spread-fade 1s ease-in infinite;
+    animation: spread-fade 1s ease-in infinite;
+}
+.nut-goi.nut-action:after {
+    display: block;
+    -webkit-animation: spread-fade 1s .2s ease-in infinite;
+    animation: spread-fade 1s .2s ease-in infinite;
+    content: "";
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    -webkit-transform: translate(-50%,-50%) scale(0);
+    -moz-transform: translate(-50%,-50%) scale(0);
+    -ms-transform: translate(-50%,-50%) scale(0);
+    -o-transform: translate(-50%,-50%) scale(0);
+    border: 5px solid #feaf88;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+</style>
+
+ <?php } ?>
+
+
+
