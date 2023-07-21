@@ -9,10 +9,9 @@
 
 get_header();
 ?>
-
-<div class="page-404">
-<?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
 <?php get_template_part('template-parts/components/component', 'breadcrumb'); ?>
+<div class="page-404">
+
     <div class="container">
         <div class="title-error text-center">404</div>
         <div class="desc text-center">TRANG NÀY KHÔNG TÌM THẤY.</div>

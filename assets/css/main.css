@@ -84,6 +84,7 @@ header .header-wrap .menu-header-wrap .menu-menu-chinh-container .menu-header {
   align-items: center;
   width: 100%;
   padding: 10px;
+  padding-top: 20px;
   /* justify-content: space-between; */
 }
 header
@@ -430,6 +431,9 @@ footer ul {
 }
 footer ul li {
   margin-bottom: 8px;
+}
+footer ul li:hover {
+  color: #ffffff;
 }
 /* scrollToTop  */
 .scrollToTop.btn-show {

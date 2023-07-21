@@ -81,13 +81,15 @@
                     </div>
                     <div class="col-md-4">
                         <div class="search-cart">
-                        <form action="<?php bloginfo('url') ?>" class="form-inline form-search-header" method="GET" role="form">
+                            <form action="<?php bloginfo('url') ?>" class="form-inline form-search-header" method="GET" role="form">
 
-                            <input name="s" type="search" class="form-control input-search" placeholder="tìm kiếm">
-                            <button type="submit" class="btn btn-success btn-search-header ">Tìm kiếm</button>
+                                <input name="s" type="search" class="form-control input-search" placeholder="tìm kiếm">
+                                <button type="submit" class="btn btn-success btn-search-header ">Tìm kiếm</button>
 
-                        </form>
-                        <?php echo do_shortcode("[woo_cart_but]"); ?>
+                            </form>
+                            <?php echo do_shortcode("[woo_cart_but]"); ?>
+
+                           
                         </div>
                     </div>
                     <!-- <?php //$social = get_field('social', 'option');

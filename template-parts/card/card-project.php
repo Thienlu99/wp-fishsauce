@@ -17,14 +17,15 @@ if (!$url) {
         </div>
 
 
-        <div class="card-info" >
+        <div class="card-info text-center" >
             <a rel="nofollow" href="<?php the_permalink(); ?>">
                 <div class="title-post">
                     <?php the_title(); ?>
+                    <p>Xem chi tiết</p>
                 </div>
             </a>
-            <a href="?add-to-cart=<?php the_ID(); ?>">Mua Ngay</a>
-            <a href="<?php the_permalink() ?>">Yêu thích</a>
+            <!-- <a href="?add-to-cart=<?php the_ID(); ?>">Mua Ngay</a>
+            <a href="<?php the_permalink() ?>">Yêu thích</a> -->
 
         </div>
 
@@ -33,9 +34,9 @@ if (!$url) {
     </div>
     <!-- mô tả -->
     <div class="info-product">
-        <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+        <h4 class="product-title-h4"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
         <div class="price-product"><?php echo $product->get_price_html(); ?></div>
-        <a href="?add-to-cart=<?php the_ID(); ?>">Thêm vào giỏ</a>
+        <a class="add_to_cart_button" href="?add-to-cart=<?php the_ID(); ?>">Thêm vào giỏ hàng</a>
 
     </div>
 </div>

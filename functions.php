@@ -146,72 +146,79 @@ function remove_breadcrumb()
     remove_action("woocommerce_before_main_content", "woocommerce_breadcrumb", 20);
 }
 add_action('init', 'remove_breadcrumb');
-
 // --------------------------------------
-//  mua ngay
-/* them code mua ngay vao phần san pham*/
-function show_buynow_product_box()
-{
+ ?>
+
+<?php 
+/*
+* Nut mua ngay
+*/
+/*
+* Thêm nút mua ngay vào trang chi tiết sản phẩm Woocommerce
+*/
+add_action('woocommerce_after_add_to_cart_button','vuontainguyen_quickbuy_after_addtocart_button');
+function vuontainguyen_quickbuy_after_addtocart_button(){
     global $product;
-?>
-    <div style="background-color:#AE1427;
-    border: 1px solid rgba(0,0,0,.125);
-    margin:0 auto;
-	text-align: center;
-    width:50%;
-    padding:5px 0px;" class="buynow-pro"><a style="color:#FFFFFF; font-size: 13px;
-    font-weight:600;" href="<?php echo get_permalink($product->ID); ?>">Mua ngay</a></div>
-<?php
-}
-
-add_action('woocommerce_after_shop_loop_item', 'show_buynow_product_box');
-
-
-/* them code mua ngay vao trang chi tiet san pham*/
-add_action('woocommerce_after_add_to_cart_button', 'kids_quickbuy_after_addtocart_button');
-function kids_quickbuy_after_addtocart_button()
-{
-    global $product;
-?>
-    <button style="background-color:#AE1427;" type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>" class="single_add_to_cart_button button alt btn-muangay" id="buy_now_button">Mua Ngay
-
+    ?>
+    <style>
+        .vuontainguyen-quickbuy button.single_add_to_cart_button.loading:after {
+            display: none;
+        }
+        .vuontainguyen-quickbuy button.single_add_to_cart_button.button.alt.loading {
+            color: #fff;
+            pointer-events: none !important;
+        }
+        .vuontainguyen-quickbuy button.buy_now_button {
+            position: relative;
+            color: rgba(255,255,255,0.05);
+        }
+        .vuontainguyen-quickbuy button.buy_now_button:after {
+            animation: spin 500ms infinite linear;
+            border: 2px solid #fff;
+            border-radius: 32px;
+            border-right-color: transparent !important;
+            border-top-color: transparent !important;
+            content: "";
+            display: block;
+            height: 16px;
+            top: 50%;
+            margin-top: -8px;
+            left: 50%;
+            margin-left: -8px;
+            position: absolute;
+            width: 16px;
+        }
+    </style>
+    <button type="button" class="button buy_now_button">
+        <?php _e('Mua ngay', 'vuontainguyen'); ?>
     </button>
-    <input type="hidden" name="is_buy_now" id="is_buy_now" value="0" />
+    <input type="hidden" name="is_buy_now" class="is_buy_now" value="0" autocomplete="off"/>
     <script>
-        jQuery(document).ready(function() {
-            jQuery('body').on('click', '#buy_now_button', function() {
-                if (jQuery(this).hasClass('disabled')) return;
-                var thisParent = jQuery(this).closest('form.cart');
-                jQuery('#is_buy_now', thisParent).val('1');
-                thisParent.submit();
+        jQuery(document).ready(function(){
+            jQuery('body').on('click', '.buy_now_button', function(e){
+                e.preventDefault();
+                var thisParent = jQuery(this).parents('form.cart');
+                if(jQuery('.single_add_to_cart_button', thisParent).hasClass('disabled')) {
+                    jQuery('.single_add_to_cart_button', thisParent).trigger('click');
+                    return false;
+                }
+                thisParent.addClass('vuontainguyen-quickbuy');
+                jQuery('.is_buy_now', thisParent).val('1');
+                jQuery('.single_add_to_cart_button', thisParent).trigger('click');
             });
         });
-
-        // xử lý slider
-        // Instantiate the Bootstrap carousel
-        $('.multi-item-carousel').carousel({
-            interval: false
-        });
-
-        // for every slide in carousel, copy the next slide's item in the slide.
-        // Do the same for the next, next item.
-        $('.multi-item-carousel .item').each(function() {
-            var next = $(this).next();
-            if (!next.length) {
-                next = $(this).siblings(':first');
-            }
-            next.children(':first-child').clone().appendTo($(this));
-
-            if (next.next().length > 0) {
-                next.next().children(':first-child').clone().appendTo($(this));
-            } else {
-                $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
-            }
-        });
     </script>
-<?php
+    <?php
+}
+add_filter('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
+function redirect_to_checkout($redirect_url) {
+    if (isset($_REQUEST['is_buy_now']) && $_REQUEST['is_buy_now']) {
+        $redirect_url = wc_get_checkout_url(); //đổi thành wc_get_cart_url()
+    }
+    return $redirect_url;
 }
 ?>
+
 
 <?php
 // nut contact lien he,fanpage--------
@@ -358,7 +365,8 @@ function woo_cart_but()
     $cart_url = wc_get_cart_url();  // Set Cart URL
 
 ?>
-    <li style="list-style:none ;"><a class="menu-item cart-contents" href="<?php echo $cart_url; ?>" title="Giỏ Hàng">
+    <li style="list-style:none ;"><a class="menu-item cart-contents" href="<?php echo $cart_url; ?>" title="Giỏ Hàng"> 
+    <span>Giỏ Hàng</span>
             <?php
             if ($cart_count > 0) {
             ?>
@@ -387,7 +395,7 @@ function woo_cart_but_count( $fragments ) {
     $cart_url = wc_get_cart_url();
     
     ?>
-    <a class="cart-contents menu-item" href="<?php echo $cart_url; ?>" title="<?php _e( 'View your shopping cart' ); ?>">
+    <a class="cart-contents menu-item" href="<?php echo $cart_url; ?>" title="<?php _e( 'View your shopping cart' ); ?>"> 
 	<?php
     if ( $cart_count > 0 ) {
         ?>
@@ -416,3 +424,4 @@ function woo_cart_but_icon ( $items, $args ) {
        return $items;
 }
 ?>
+

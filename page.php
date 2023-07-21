@@ -11,7 +11,7 @@ get_header();
 
 ?>
 
-
+<?php get_template_part('template-parts/components/component', 'breadcrumb'); ?>
 <main class="pt-4">
 
 
@@ -26,7 +26,7 @@ get_header();
             ?>
             <?php //get_template_part('/template-parts/components/component', 'breadcrumb'); 
             ?>
-            <?php if (function_exists('rank_math_the_breadcrumbs')) rank_math_the_breadcrumbs(); ?>
+         
 
             <div class="row">
                 <div class="col-md-9">
