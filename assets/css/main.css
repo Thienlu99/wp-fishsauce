@@ -53,7 +53,8 @@ header .header-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  /* height: 80px; */
+  min-height: 80px;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
   background: #ca9432;
 }
@@ -83,7 +84,7 @@ header .header-wrap .menu-header-wrap .menu-menu-chinh-container .menu-header {
   align-items: center;
   width: 100%;
   padding: 10px;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 header
   .header-wrap

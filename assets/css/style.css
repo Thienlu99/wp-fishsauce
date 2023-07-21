@@ -811,7 +811,7 @@
     justify-content: space-between;
   }
   header .header-inner .menu-header-wrap {
-    width: 900px;
+    /* width: 900px; */
   }
   header .header-inner .social-list {
     display: flex;
@@ -929,4 +929,26 @@ span.span-contact {
 
 a.a-color-contact {
     color: blue;
+}
+
+/* menu */
+
+.search-cart {
+  display: flex;
+}
+
+form.form-search-header {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+
+
+.search-cart form button.btn-search-header {
+  min-width: 110px;
+}
+
+.search-cart li {
+  align-items: center;
+  padding-top: 5px;
 }

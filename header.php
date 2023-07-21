@@ -37,7 +37,7 @@
                     </div>
                     <?php $logo = get_field('logo', 'options');
                     if ($logo) :; ?>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="logo" style=" max-width: 70px;margin: 0 30px;">
                                 <a href="<?php echo get_home_url(); ?>">
                                     <div class="img-wrap">
@@ -57,8 +57,8 @@
                     <?php endif; ?>
 
                     <!-- menu -->
-                    <div class="col-md-9">
-                        <div class="menu-header-wrap">
+                    <div class="col-md-6">
+                        <nav class="menu-header-wrap" id="menu-header-wrap">
                             <?php wp_nav_menu(
                                 array(
                                     'theme_location' => 'primary',
@@ -68,10 +68,26 @@
                                     'menu_class' => 'menu-header',
                                     //ul
                                     'container_class' => 'menu-menu-chinh-container',
+                                    'container_id' => 'menu-menu-chinh-container',
                                     //div
+
                                 )
+
                             );
                             ?>
+
+                        </nav>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="search-cart">
+                        <form action="<?php bloginfo('url') ?>" class="form-inline form-search-header" method="GET" role="form">
+
+                            <input name="s" type="search" class="form-control input-search" placeholder="tìm kiếm">
+                            <button type="submit" class="btn btn-success btn-search-header ">Tìm kiếm</button>
+
+                        </form>
+                        <?php echo do_shortcode("[woo_cart_but]"); ?>
                         </div>
                     </div>
                     <!-- <?php //$social = get_field('social', 'option');
@@ -82,7 +98,7 @@
                             ?>
                                 <div class="social-wrap"><a href="<?php //echo $item['link']['url']; 
                                                                     ?>"><?php //echo $item['icon'];
-                                                                                                            ?></a></div>
+                                                                        ?></a></div>
                             <?php //endforeach; 
                             ?>
 

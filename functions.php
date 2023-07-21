@@ -215,126 +215,204 @@ function kids_quickbuy_after_addtocart_button()
 
 <?php
 // nut contact lien he,fanpage--------
-add_action( 'wp_footer','contact_footer' );
-function contact_footer(){ ?>
+add_action('wp_footer', 'contact_footer');
+function contact_footer()
+{ ?>
     <div class="div-nut">
-    <a href="tel:0914282009" class="nut-goi nut-action">
-        <div><span class="tooltext">Gọi ngay</span></div>
-    </a>
-    <a href="http://zalo.me/0914282009" target="_blank" class="nut-zalo nut-action">
-        <div><span class="tooltext">Chat với chúng tôi qua Zalo</span></div>
-    </a>
-    <a href="https://www.facebook.com/nuocmamtungvanhue" target="_blank" class="nut-face nut-action">
-        <div><span class="tooltext">Facebook Messenger</span></div>
-    </a>
-</div>
-<style>
-    .div-nut {
-    display: flex;
-    flex-direction: column;
-    font-size: 14px !important;
-    position: fixed;
-    z-index: 2147483647;
-    bottom: 24px;
-    right: 0;
-    padding-left: 5px;
-}
-.div-nut:hover .nut-action {
-    text-decoration: none !important;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15), 0 4px 15px rgba(0, 0, 0, 0.13);
-}
+        <a href="tel:0914282009" class="nut-goi nut-action">
+            <div><span class="tooltext">Gọi ngay</span></div>
+        </a>
+        <a href="http://zalo.me/0914282009" target="_blank" class="nut-zalo nut-action">
+            <div><span class="tooltext">Chat với chúng tôi qua Zalo</span></div>
+        </a>
+        <a href="https://www.facebook.com/nuocmamtungvanhue" target="_blank" class="nut-face nut-action">
+            <div><span class="tooltext">Facebook Messenger</span></div>
+        </a>
+    </div>
+    <style>
+        .div-nut {
+            display: flex;
+            flex-direction: column;
+            font-size: 14px !important;
+            position: fixed;
+            z-index: 2147483647;
+            bottom: 24px;
+            right: 0;
+            padding-left: 5px;
+        }
 
-.div-nut .nut-goi {
-    background-image: url(https://test.nuocmamtungvan.com/wp-content/uploads/2023/07/phone-call.png);
-}
+        .div-nut:hover .nut-action {
+            text-decoration: none !important;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15), 0 4px 15px rgba(0, 0, 0, 0.13);
+        }
 
-.div-nut .nut-zalo {
-    background-image: url(https://test.nuocmamtungvan.com/wp-content/uploads/2023/07/zalo-icon.png);
-}
-.div-nut .nut-face {
-    background-image: url(https://test.nuocmamtungvan.com/wp-content/uploads/2023/07/messenger.png);
-}
-.div-nut > a {
-    display: inline-block;
-    overflow: visible !important;
-    width: 54px !important;
-    height: 54px !important;
-    margin: 6px !important;
-    background-size: 100% !important;
-    border: 2px solid #fff !important;
-    border-radius: 50% !important;
-    margin: 8px;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: auto;
-    cursor: pointer;
-    position: relative;
-}
-a{
-    color: #334862;
-    text-decoration: none;
-}
+        .div-nut .nut-goi {
+            background-image: url(https://test.nuocmamtungvan.com/wp-content/uploads/2023/07/phone-call.png);
+        }
 
-.div-nut .tooltext {
-    /* visibility: hidden; */
-    font-size: 12px !important;
-    line-height: 16px !important;
-    text-align: center;
-    white-space: nowrap;
-    border-radius: 4px;
-    padding: 8px;
-    position: absolute;
-    top: calc(50% - 16px);
-    z-index: 1;
-    /* opacity: 0; */
-    transition: opacity 0.5s;
-    right: 120%;
-    background-image: linear-gradient(180deg, #e57373 0%, #c62828 100%);
-    color: #fff;
+        .div-nut .nut-zalo {
+            background-image: url(https://test.nuocmamtungvan.com/wp-content/uploads/2023/07/zalo-icon.png);
+        }
+
+        .div-nut .nut-face {
+            background-image: url(https://test.nuocmamtungvan.com/wp-content/uploads/2023/07/messenger.png);
+        }
+
+        .div-nut>a {
+            display: inline-block;
+            overflow: visible !important;
+            width: 54px !important;
+            height: 54px !important;
+            margin: 6px !important;
+            background-size: 100% !important;
+            border: 2px solid #fff !important;
+            border-radius: 50% !important;
+            margin: 8px;
+            text-align: center;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: auto;
+            cursor: pointer;
+            position: relative;
+        }
+
+        a {
+            color: #334862;
+            text-decoration: none;
+        }
+
+        .div-nut .tooltext {
+            /* visibility: hidden; */
+            font-size: 12px !important;
+            line-height: 16px !important;
+            text-align: center;
+            white-space: nowrap;
+            border-radius: 4px;
+            padding: 8px;
+            position: absolute;
+            top: calc(50% - 16px);
+            z-index: 1;
+            /* opacity: 0; */
+            transition: opacity 0.5s;
+            right: 120%;
+            background-image: linear-gradient(180deg, #e57373 0%, #c62828 100%);
+            color: #fff;
+        }
+
+        /* nut rieng */
+        .nut-goi.nut-action:before {
+            content: "";
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+            -webkit-transform: translate(-50%, -50%) scale(0);
+            -moz-transform: translate(-50%, -50%) scale(0);
+            -ms-transform: translate(-50%, -50%) scale(0);
+            -o-transform: translate(-50%, -50%) scale(0);
+            border: 5px solid #feaf88;
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            display: block;
+            -webkit-animation: spread-fade 1s ease-in infinite;
+            animation: spread-fade 1s ease-in infinite;
+        }
+
+        .nut-goi.nut-action:after {
+            display: block;
+            -webkit-animation: spread-fade 1s .2s ease-in infinite;
+            animation: spread-fade 1s .2s ease-in infinite;
+            content: "";
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+            -webkit-transform: translate(-50%, -50%) scale(0);
+            -moz-transform: translate(-50%, -50%) scale(0);
+            -ms-transform: translate(-50%, -50%) scale(0);
+            -o-transform: translate(-50%, -50%) scale(0);
+            border: 5px solid #feaf88;
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+        }
+    </style>
+
+<?php } ?>
+<!-- cart  -->
+
+<?php  // <~ don't add me in
+
+add_shortcode('woo_cart_but', 'woo_cart_but');
+/**
+ * Create Shortcode for WooCommerce Cart Menu Item
+ */
+function woo_cart_but()
+{
+    ob_start();
+
+    $cart_count = WC()->cart->cart_contents_count; // Set variable for cart item count
+    $cart_url = wc_get_cart_url();  // Set Cart URL
+
+?>
+    <li style="list-style:none ;"><a class="menu-item cart-contents" href="<?php echo $cart_url; ?>" title="Giỏ Hàng">
+            <?php
+            if ($cart_count > 0) {
+            ?>
+                <span class="cart-contents-count"><?php echo $cart_count; ?></span>
+            <?php
+            }
+            ?>
+        </a></li>
+<?php
+
+    return ob_get_clean();
+} ?>
+
+<!-- --------- -->
+<?php  // <~ don't add me in
+
+add_filter( 'woocommerce_add_to_cart_fragments', 'woo_cart_but_count' );
+/**
+ * Add AJAX Shortcode when cart contents update
+ */
+function woo_cart_but_count( $fragments ) {
+ 
+    ob_start();
+    
+    $cart_count = WC()->cart->cart_contents_count;
+    $cart_url = wc_get_cart_url();
+    
+    ?>
+    <a class="cart-contents menu-item" href="<?php echo $cart_url; ?>" title="<?php _e( 'View your shopping cart' ); ?>">
+	<?php
+    if ( $cart_count > 0 ) {
+        ?>
+        <span class="cart-contents-count"><?php echo $cart_count; ?></span>
+        <?php            
+    }
+        ?></a>
+    <?php
+ 
+    $fragments['a.cart-contents'] = ob_get_clean();
+     
+    return $fragments;
 }
-/* nut rieng */
-.nut-goi.nut-action:before {
-    content: "";
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-    -webkit-transform: translate(-50%,-50%) scale(0);
-    -moz-transform: translate(-50%,-50%) scale(0);
-    -ms-transform: translate(-50%,-50%) scale(0);
-    -o-transform: translate(-50%,-50%) scale(0);
-    border: 5px solid #feaf88;
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    display: block;
-    -webkit-animation: spread-fade 1s ease-in infinite;
-    animation: spread-fade 1s ease-in infinite;
+?>
+<!-- -----icon cart -->
+<?php  // <~ don't add me in
+
+add_filter( 'wp_nav_menu_primary', 'woo_cart_but_icon', 10, 2 ); // Change menu to suit - example uses 'top-menu'
+
+/**
+ * Add WooCommerce Cart Menu Item Shortcode to particular menu
+ */
+function woo_cart_but_icon ( $items, $args ) {
+       $items .=  '[woo_cart_but]'; // Adding the created Icon via the shortcode already created
+       
+       return $items;
 }
-.nut-goi.nut-action:after {
-    display: block;
-    -webkit-animation: spread-fade 1s .2s ease-in infinite;
-    animation: spread-fade 1s .2s ease-in infinite;
-    content: "";
-    margin: 0 auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-    -webkit-transform: translate(-50%,-50%) scale(0);
-    -moz-transform: translate(-50%,-50%) scale(0);
-    -ms-transform: translate(-50%,-50%) scale(0);
-    -o-transform: translate(-50%,-50%) scale(0);
-    border: 5px solid #feaf88;
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-}
-</style>
-
- <?php } ?>
-
-
-
+?>
