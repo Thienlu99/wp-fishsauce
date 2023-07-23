@@ -209,13 +209,13 @@ img.alignright {
   justify-content: center;
 }
 
-.cart-contents:before {
+/* .cart-contents:before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f290" !important;
   font-size: 30px;
   color: #000000;
-}
+} */
 
 .cart-contents:hover {
   text-decoration: none;
@@ -224,8 +224,8 @@ img.alignright {
 
 .cart-contents-count {
   position: absolute;
-  top: 15px;
-  right: 1px;
+  top: 8px;
+  right: -20px;
   transform: translateY(-105%) translateX(25%);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: normal;

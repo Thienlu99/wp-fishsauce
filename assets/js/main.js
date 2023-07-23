@@ -326,3 +326,25 @@ $(document).ready(function () {
       // autoplaySpeed: 1000,
     });
   });
+
+
+//   ---------down cart
+
+// Thêm đoạn mã JavaScript này vào file dropdown-cart.js
+jQuery(document).ready(function ($) {
+    // Đảm bảo DOM đã sẵn sàng trước khi thêm các sự kiện
+  
+    // Ẩn dropdown khi nhấn bất kỳ nơi nào trên trang
+    $(document).on("click", function (event) {
+      if (!$(event.target).closest(".dropdown-cart").length) {
+        $(".cart-dropdown-content").hide();
+      }
+    });
+  
+    // Ngăn sự kiện click bị lan ra ngoài dropdown
+    $(".dropdown-cart").on("click", function (event) {
+      event.stopPropagation();
+    });
+  
+    // Nếu bạn muốn thêm các hiệu ứng khác, có thể sử dụng jQuery animate, fadeIn, fadeOut, etc.
+  });

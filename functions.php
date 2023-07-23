@@ -147,31 +147,35 @@ function remove_breadcrumb()
 }
 add_action('init', 'remove_breadcrumb');
 // --------------------------------------
- ?>
+?>
 
-<?php 
+<?php
 /*
 * Nut mua ngay
 */
 /*
 * Thêm nút mua ngay vào trang chi tiết sản phẩm Woocommerce
 */
-add_action('woocommerce_after_add_to_cart_button','vuontainguyen_quickbuy_after_addtocart_button');
-function vuontainguyen_quickbuy_after_addtocart_button(){
-    global $product;
-    ?>
+add_action('woocommerce_after_add_to_cart_button', 'vuontainguyen_quickbuy_after_addtocart_button');
+function vuontainguyen_quickbuy_after_addtocart_button()
+{
+    // global $product;
+?>
     <style>
         .vuontainguyen-quickbuy button.single_add_to_cart_button.loading:after {
             display: none;
         }
+
         .vuontainguyen-quickbuy button.single_add_to_cart_button.button.alt.loading {
             color: #fff;
             pointer-events: none !important;
         }
+
         .vuontainguyen-quickbuy button.buy_now_button {
             position: relative;
-            color: rgba(255,255,255,0.05);
+            color: rgba(255, 255, 255, 0.05);
         }
+
         .vuontainguyen-quickbuy button.buy_now_button:after {
             animation: spin 500ms infinite linear;
             border: 2px solid #fff;
@@ -192,13 +196,13 @@ function vuontainguyen_quickbuy_after_addtocart_button(){
     <button type="button" class="button buy_now_button">
         <?php _e('Mua ngay', 'vuontainguyen'); ?>
     </button>
-    <input type="hidden" name="is_buy_now" class="is_buy_now" value="0" autocomplete="off"/>
+    <input type="hidden" name="is_buy_now" class="is_buy_now" value="0" autocomplete="off" />
     <script>
-        jQuery(document).ready(function(){
-            jQuery('body').on('click', '.buy_now_button', function(e){
+        jQuery(document).ready(function() {
+            jQuery('body').on('click', '.buy_now_button', function(e) {
                 e.preventDefault();
                 var thisParent = jQuery(this).parents('form.cart');
-                if(jQuery('.single_add_to_cart_button', thisParent).hasClass('disabled')) {
+                if (jQuery('.single_add_to_cart_button', thisParent).hasClass('disabled')) {
                     jQuery('.single_add_to_cart_button', thisParent).trigger('click');
                     return false;
                 }
@@ -208,10 +212,11 @@ function vuontainguyen_quickbuy_after_addtocart_button(){
             });
         });
     </script>
-    <?php
+<?php
 }
 add_filter('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
-function redirect_to_checkout($redirect_url) {
+function redirect_to_checkout($redirect_url)
+{
     if (isset($_REQUEST['is_buy_now']) && $_REQUEST['is_buy_now']) {
         $redirect_url = wc_get_checkout_url(); //đổi thành wc_get_cart_url()
     }
@@ -364,17 +369,120 @@ function woo_cart_but()
     $cart_count = WC()->cart->cart_contents_count; // Set variable for cart item count
     $cart_url = wc_get_cart_url();  // Set Cart URL
 
+    // Lấy giỏ hàng hiện tại của người dùng
+    $woocommerce = WC();
+
+    // Lấy thông tin giỏ hàng
+    $cart = $woocommerce->cart;
+
+    // Lấy tổng giá hiện tại trong giỏ hàng
+    $total = $cart->get_cart_total();
+
 ?>
-    <li style="list-style:none ;"><a class="menu-item cart-contents" href="<?php echo $cart_url; ?>" title="Giỏ Hàng"> 
-    <span>Giỏ Hàng</span>
-            <?php
-            if ($cart_count > 0) {
-            ?>
-                <span class="cart-contents-count"><?php echo $cart_count; ?></span>
-            <?php
+
+    <div class="header-button cart-icon dropdown">
+
+        <a class="cart-contents dropbtn" href="<?php echo $cart_url; ?>" title="Giỏ hàng">
+
+
+            <span class="header-cart-title">
+                Giỏ hàng / <span class="cart-price"><span class=" amount"><bdi><?php echo $total; ?><span class="woocommerce-Price-currencySymbol"> VNĐ</span></bdi></span></span>
+                <i class="fa-sharp fa-solid fa-cart-shopping"></i>
+                <!-- nếu count thì hiện -->
+                <?php
+                if ($cart_count > 0) {
+                ?>
+                    <span class="cart-contents-count"><?php echo $cart_count; ?></span>
+                <?php
+                }
+                ?>
+
+            </span>
+
+
+        </a>
+        <!-- down drop xổ dropdown cart-->
+        <?php {
+            // Kiểm tra nếu giỏ hàng đang rỗng
+            if (WC()->cart->is_empty()) {
+                return; // Không hiển thị gì cả nếu giỏ hàng rỗng
             }
-            ?>
-        </a></li>
+
+            // Lấy tất cả các sản phẩm trong giỏ hàng
+            $cart_items = WC()->cart->get_cart();
+            // Hiển thị các sản phẩm trong giỏ hàng
+        ?>
+            <div class="dropdown-content">
+                <!-- <ul class="cart-list"> -->
+                <!-- // Lấy giá sản phẩm -->
+
+                <?php foreach ($cart_items as $cart_item_key => $cart_item) {
+                    $_product   = apply_filters('woocommerce_cart_item_product', $cart_item['data'], $cart_item, $cart_item_key);
+                    $product_id = apply_filters('woocommerce_cart_item_product_id', $cart_item['product_id'], $cart_item, $cart_item_key);
+                    // Hiển thị tên sản phẩm
+                ?>
+                    <?php $price = wc_price($_product->get_price());
+                    // Lấy thông tin hình ảnh sản phẩm
+                    // $thumbnail = $_product->get_image(array(100, 100));
+
+                    // Lấy đường dẫn (URL) của hình ảnh thumbnail sản phẩm
+                    $thumbnail = $_product->get_image(array(100, 100));
+                    // Lấy số lượng sản phẩm trong giỏ hàng
+                    $quantity = $cart_item['quantity'];
+
+                    // Lấy giá sản phẩm
+                    $price2 = $_product->get_price();
+
+                    // Tính tổng tiền cho từng sản phẩm
+                    $total_price = $quantity * $price2;
+
+
+                    // Tính tổng giá tất cả sản phẩm trong giỏ hàng
+                    $total_price = WC()->cart->get_cart_total();
+
+                    ?>
+
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="down-cart-item-right">
+                                <?php echo $thumbnail ?>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="down-cart-item-left">
+                                <a> <?php echo $_product->get_name() ?> </a>
+                                <div class="price-product"><?php echo  $quantity . ' x ' . wc_price($price2) ; ?></div>
+                                <a href=" <?php echo esc_url(wc_get_cart_remove_url($cart_item_key)) ?>" class="remove-product" title="Xóa">Xóa</a>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                <?php } ?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="cart-total">
+                            Tổng số phụ:<?php echo $total_price; ?>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- // echo '</ul>'; -->
+            </div>
+        <?php } ?>
+
+
+        <!-- <div class="dropdown-content">
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+        </div> -->
+    </div>
+
+
 <?php
 
     return ob_get_clean();
@@ -383,45 +491,79 @@ function woo_cart_but()
 <!-- --------- -->
 <?php  // <~ don't add me in
 
-add_filter( 'woocommerce_add_to_cart_fragments', 'woo_cart_but_count' );
+add_filter('woocommerce_add_to_cart_fragments', 'woo_cart_but_count');
 /**
  * Add AJAX Shortcode when cart contents update
  */
-function woo_cart_but_count( $fragments ) {
- 
+function woo_cart_but_count($fragments)
+{
+
     ob_start();
-    
+
     $cart_count = WC()->cart->cart_contents_count;
     $cart_url = wc_get_cart_url();
-    
-    ?>
-    <a class="cart-contents menu-item" href="<?php echo $cart_url; ?>" title="<?php _e( 'View your shopping cart' ); ?>"> 
-	<?php
-    if ( $cart_count > 0 ) {
+
+?>
+    <a class="cart-contents menu-item" href="<?php echo $cart_url; ?>" title="<?php _e('View your shopping cart'); ?>">
+        <?php
+        if ($cart_count > 0) {
         ?>
-        <span class="cart-contents-count"><?php echo $cart_count; ?></span>
-        <?php            
-    }
+            <span class="cart-contents-count"><?php echo $cart_count; ?></span>
+        <?php
+        }
         ?></a>
-    <?php
- 
+<?php
+
     $fragments['a.cart-contents'] = ob_get_clean();
-     
+
     return $fragments;
 }
 ?>
-<!-- -----icon cart -->
+<!-- -----icon cart vào trong menu -->
 <?php  // <~ don't add me in
 
-add_filter( 'wp_nav_menu_primary', 'woo_cart_but_icon', 10, 2 ); // Change menu to suit - example uses 'top-menu'
+add_filter('wp_nav_menu_primary', 'woo_cart_but_icon', 10, 2); // Change menu to suit - example uses 'top-menu'
 
 /**
  * Add WooCommerce Cart Menu Item Shortcode to particular menu
  */
-function woo_cart_but_icon ( $items, $args ) {
-       $items .=  '[woo_cart_but]'; // Adding the created Icon via the shortcode already created
-       
-       return $items;
+function woo_cart_but_icon($items, $args)
+{
+    $items .=  '[woo_cart_but]'; // Adding the created Icon via the shortcode already created
+
+    return $items;
 }
 ?>
 
+<?php
+/** Change a currency symbol đ to VND
+ */
+add_filter('woocommerce_currency_symbol', 'change_existing_currency_symbol', 10, 2);
+function change_existing_currency_symbol($currency_symbol, $currency)
+{
+    switch ($currency) {
+        case 'VND':
+            $currency_symbol = 'VND';
+            break;
+    }
+    return $currency_symbol;
+}
+?>
+
+<!-- lựa chọn lựa chọn -->
+<?php
+function custom_add_to_cart_button_text($text)
+{
+    global $product;
+
+    // Kiểm tra nếu sản phẩm có biến thể (variations)
+    if ($product->is_type('variable')) {
+        $text = __('Select options', 'woocommerce');
+    }
+
+    return $text;
+}
+add_filter('woocommerce_product_single_add_to_cart_text', 'custom_add_to_cart_button_text');
+add_filter('woocommerce_product_add_to_cart_text', 'custom_add_to_cart_button_text');
+
+?>

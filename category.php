@@ -46,8 +46,7 @@
                 <!--  phân trang -->
                 <div class="lh2-pagging col-12">
                     <?php if (paginate_links() != '') { ?>
-                        <div class="quatrang" style="text-align: center;
-    margin-bottom: 30px;">
+                        <div class="quatrang" style="text-align: center;margin-bottom: 30px;">
                             <?php
                             global $wp_query;
                             $big = 999999999;

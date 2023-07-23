@@ -8,8 +8,8 @@
         <div class="danh-muc">
             <span>
                 <ul style="list-style: none;">
-                    <!-- danh sách danh mục -->
-                    <?php
+                    <!-- danh sách danh mục của post type sản phẩm wocommecer -->
+                    <!-- <?php
                     $args = array(
                         'type'      => 'product',
                         'child_of'  => 0,
@@ -22,7 +22,7 @@
                             <a href="<?php echo get_term_link($category->slug, 'product_cat'); ?>"><?php echo $category->name; ?></a>
                         </li>
 
-                    <?php } ?>
+                    <?php } ?> -->
                 </ul>
             </span>
         </div>

@@ -937,17 +937,20 @@ a.a-color-contact {
 
 .search-cart {
   display: flex;
+  margin-top: 26px;
 }
 
 form.form-search-header {
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   padding-right: 20px;
 }
-
+form.form-search-header input{
+  width: 120px;
+}
 
 .search-cart form button.btn-search-header {
-  min-width: 110px;
+  /* min-width: 110px; */
 }
 
 .search-cart li {
@@ -969,7 +972,28 @@ form.form-search-header {
     font-weight: 700;
     border-radius: 3px;
     left: auto;
-    color: #515151;
+    color: #446084;;
+    border: 0;
+    display: inline-block;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+}
+/* mua ngay */
+.add_to_single_button {
+  background-color:#AE1427;
+  font-size: 100%;
+    margin-top: 20px;
+    line-height: 1;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    overflow: visible;
+    padding: 0.618em 1em;
+    font-weight: 700;
+    border-radius: 3px;
+    left: auto;
+    color: #ffff;
     border: 0;
     display: inline-block;
     background-image: none;
@@ -999,3 +1023,42 @@ form.form-search-header {
   font-weight: bold;
   font-size: 20px;
 }
+
+
+
+/* -------------đoạn code down cart */
+.dropbtn {
+  
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 400px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  right: -20px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}

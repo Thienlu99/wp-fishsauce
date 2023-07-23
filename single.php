@@ -19,7 +19,7 @@ $url = wp_get_attachment_url(get_post_thumbnail_id(), 'thumbnail');
     if ($banner) :; ?>
         <div class="banner">
             <div class="img-wrap">
-                <img src="<?php echo $banner; ?>" alt="">
+                <img src="<?php echo $banner; ?>" alt="<?php the_title() ?>">
             </div>
         </div>
     <?php endif; ?>
